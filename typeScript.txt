@@ -1,0 +1,54 @@
+    What is Typescript?
+This is a programming language created to address the short-commings of javascript.
+-Typescript is built on-top of javascript, so every javascript file is a valid typescript file.
+-Typescript is javascript with type checking and additional features.
+-Anything we can do with javascript, we can do with typescript.
+    Banefit of typescript
+1)Static typing: we set the type of our variable on declearation.
+then we pass our code to the typescript compiler and the compiler will tell us if we are doing something wrong.
+2)Code-completion.
+3)Refactoring.
+4)Shorthand notations.
+    Draw-backs of typescript
+1)Compilation: with typescript, there is always a compilation step invovled beacuse browsers don't understand typescript 
+codes. so we have to give our code to a compiler to compile and translate it to javascript code. This process is called
+TRANSPILATION.
+2)Discipline in writing code: typescript is preferably used for medium to large projects while javascript is used for
+small projects.
+    How to install typescript
+npm i -g typescript - This will install it globally on your computer.
+tsc -v : check the version of typescript on your computer.
+code . : to open vs code from your therminal.
+ts : This is typescript extention file
+    How to use compiler in typescript
+'tsc filename' on your terminal after writing typescript code. It will compile and translate to javascript, 
+creating a javascript extention.
+    How to configure the typescript compiler
+tsc --init : This creates a configuration file for the typescript compiler.
+-in the 'target' : '2016' , you can clear the 2016 and press ctrl + space to see valid values to input.
+-in module section (rootdir). it is advisible to put your rootdir into a 'src' folder, i.e './src'.
+-in the Emit section (outdir), this is where our javascript file will be after compilation. it is advisible we put it in 
+a 'dist' folder.
+-if we also enable 'removeComment: true' all the comments in our typescript code will not be displayed in our jscode
+-if we also enable "noEmitOnError": true", the javascript file will not be created when there's an error.
+-After configuration, anytime we write a typescript code we just have to type only "tsc" on the terminal.
+    How to debug typescript code
+We go to the emit section in the tsconfig.json,
+we enable the 'sourceMap: true': This feature is a file that specifies each line of our typescript code maps to the
+generated javascript code.
+-click on Run and debud
+-click on create and launch a jsonfile
+-select node.js
+This creates a new file called launch.json
+in the program and outfiles,
+create a "preLaunchTask" : "tsc: build - tsconfig.json" in between the program and outfiles
+This is telling vs code to build our application using this configuration.
+After that click on debugging and launch program.
+    Fundamentals
+1)Built-in types
+-javascript has built-in types like
+numbers,boolean,string,null,undefined and objects.
+-typescript extends this list to
+any, unknown, never, enum, tuple.
+-in typescript if you have a large number, you can seperate it digits using _
+

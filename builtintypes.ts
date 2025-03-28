@@ -1,1 +1,0 @@
-let sales: number = 123456789;

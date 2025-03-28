@@ -3,23 +3,27 @@ This is a programming language created to address the short-commings of javascri
 -Typescript is built on-top of javascript, so every javascript file is a valid typescript file.
 -Typescript is javascript with type checking and additional features.
 -Anything we can do with javascript, we can do with typescript.
+    
     Banefit of typescript
 1)Static typing: we set the type of our variable on declearation.
 then we pass our code to the typescript compiler and the compiler will tell us if we are doing something wrong.
 2)Code-completion.
 3)Refactoring.
 4)Shorthand notations.
+    
     Draw-backs of typescript
 1)Compilation: with typescript, there is always a compilation step invovled beacuse browsers don't understand typescript 
 codes. so we have to give our code to a compiler to compile and translate it to javascript code. This process is called
 TRANSPILATION.
 2)Discipline in writing code: typescript is preferably used for medium to large projects while javascript is used for
 small projects.
+    
     How to install typescript
 npm i -g typescript - This will install it globally on your computer.
 tsc -v : check the version of typescript on your computer.
 code . : to open vs code from your therminal.
 ts : This is typescript extention file
+    
     How to use compiler in typescript
 'tsc filename' on your terminal after writing typescript code. It will compile and translate to javascript, 
 creating a javascript extention.
@@ -32,6 +36,7 @@ a 'dist' folder.
 -if we also enable 'removeComment: true' all the comments in our typescript code will not be displayed in our jscode
 -if we also enable "noEmitOnError": true", the javascript file will not be created when there's an error.
 -After configuration, anytime we write a typescript code we just have to type only "tsc" on the terminal.
+    
     How to debug typescript code
 We go to the emit section in the tsconfig.json,
 we enable the 'sourceMap: true': This feature is a file that specifies each line of our typescript code maps to the
@@ -44,11 +49,67 @@ in the program and outfiles,
 create a "preLaunchTask" : "tsc: build - tsconfig.json" in between the program and outfiles
 This is telling vs code to build our application using this configuration.
 After that click on debugging and launch program.
+    
     Fundamentals
 1)Built-in types
 -javascript has built-in types like
 numbers,boolean,string,null,undefined and objects.
 -typescript extends this list to
 any, unknown, never, enum, tuple.
--in typescript if you have a large number, you can seperate it digits using _
-
+-in typescript if you have a large number, you can seperate it digits using "_". It makes our code more readable.
+-in typescript, we don't always have to annotate our variables cos the ts compiler can detect the type using it's values.
+    The any types
+In typescript, we have a new datatype called 'any'.
+if we deeclear a variable and don't initialise it, the typescript compiler will initialise it to a value of 'any'.
+For best practise, avoid using the any type as much as possible.
+    when you write a fucntion and you dont define the parameter, you get an error.
+-you can either annotate the parameter to type any or 
+-go to tsconfig and turn "noImplicitAny": true,  to "noImplicitAny": false.  
+use number two with caution only when you know what you are doing otherwise there is no point using typescript.
+    Arrays
+-in javascript, arrays can hold any datatype as values.
+-But in typescript we can annotate the array to a certain type and we will get any error in compile time.
+-If we want to use an empty array, we have to annotate it to a particular type.
+-One of the benefits of typescript is that it offers code completion.
+    Tuples
+This is used when we want to have two values of different types. so we put them in a fixed length array.
+When we compile tuples, we get our regular javascript arrays
+Tuples are useful when we have only two values i.e key value pairs
+we should refrain from using more than two values.
+    Enums
+This represents a list of related constants.
+when we use the enum keyword, the variables must use Pascal notations.
+we use const enum to get a more obtimized javascript code after compilation.
+    
+    Functions
+How typescript helps us tackle common problems when working with Functions.
+-By annotating the parameter and return value, it reduces error.
+-we also go to our tsconfig file(strict) to turn on "noUnusedParameters": true, 
+This helps when we define a parameter and never use it.
+-when we forget to return a value, go to tsconfig file and turn on "noImplicitReturns": true, 
+This helps when we forget to return a value.
+-How to detect unused variables 
+go to tsconfig(strict) and turn on  "noUnusedLocals": true, 
+-it is best to annotate our functions properly to prevent all this issues.
+-we can make a parameter optional by adding ? to it
+    
+    Objects
+when creating an object, we have to annotate it so we don't get any errors.
+-We use the 'readonly' property to stop us from accidentally changing the properties of an object.
+a)How to define a method in an object
+-You initialise it and give it parameters
+    
+    Advanced Types
+1)Type Aliases: This helps us define a custom type
+2)Union Types: with union types, we can give a parameter or variable more than one type.
+using a vertical bar( | ), we can create a union type.
+-we use narrowing to narrow the union type to a more specific type.
+3)Intersection Types( & ): This represents an object that is both a number and a string at the same time
+4)Literal type: This is the exact or specific type.
+5)Nullable types: null values
+in our tsconfig, since strict is set to true, "strictNullChecks": true, is also set to true.
+we can overight it and turn  "strictNullChecks": false.
+technically we should not use this option
+6)Optional chaining( ?. ): This is the optional chaining operator
+we also have optional element access operator: This is useful in arrays
+we also have optional call  
